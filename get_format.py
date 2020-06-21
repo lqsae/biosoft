@@ -111,7 +111,7 @@ def sort_hebing_file(file):
         first_pos = int(pos_list[0][0])
         last_pos = int(pos_list[-1][0])
         if first_pos > last_pos:
-            sort_pos_list = reversed(pos_list)
+            sort_pos_list = pos_list[::-1]
         else:
             sort_pos_list = pos_list
         for number, j in enumerate(value):
