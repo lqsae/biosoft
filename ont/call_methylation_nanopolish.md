@@ -1,6 +1,7 @@
 ## 1.数据预处理
 合并fastq数据
-<br> cat fastq_pass/*.fastq >115.fastq
+<br> 
+```cat fastq_pass/*.fastq >115.fastq
 <br> nanopolish需要用到原始信号。首先，需要创建一个索引文件，该文件将读取的ID与FAST5文件中的信号建立链接。
 <br>
 ```nanopolish index -d fast5_files/ output.fastq```
