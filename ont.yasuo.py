@@ -14,10 +14,10 @@ class ONT:
         self.fast5_pass_dir = os.path.join(wkdir, '{0}/fast5_pass'.format(sample))
         self.fastq_fail_dir = os.path.join(wkdir, '{0}/fastq_fail'.format(sample))
         self.fastq_pass_dir = os.path.join(wkdir, '{0}/fastq_pass'.format(sample))
-        self.fast5_fail = os.path.join(self.fast5_fail_dir, '*.fast5')
-        self.fast5_pass = os.path.join(self.fast5_pass_dir, '*.fast5')
-        self.fastq_fail = os.path.join(self.fastq_fail_dir, '*.fastq')
-        self.fastq_pass = os.path.join(self.fastq_pass_dir, '*.fastq')
+        self.fast5_fail = '*.fast5'
+        self.fast5_pass = '*.fast5'
+        self.fastq_fail = '*.fastq'
+        self.fastq_pass = '*.fastq'
 
     def gzip(self):
         if os.path.exists(self.fastq_fail):
@@ -38,12 +38,12 @@ class ONT:
         fast5_pass_md5_txt = os.path.join(self.fast5_pass_dir, 'fast5_pass.md5.txt')
         fastq_fail_md5_txt = os.path.join(self.fastq_fail_dir, 'fastq_fail.md5.txt')
         fastq_pass_md5_txt = os.path.join(self.fastq_pass_dir, 'fastq_pass.md5.txt')
-        fastq_fail_gz = os.path.join(self.fastq_fail_dir, '*.fastq.gz')
-        fastq_pass_gz = os.path.join(self.fastq_pass_dir, '*.fastq.gz')
+        fastq_fail_gz = '*.fastq.gz'
+        fastq_pass_gz = '*.fastq.gz'
         cmd_fast5_fail = 'cd {0} ; md5sum {1} >>{2}'.format(self.fast5_fail_dir, self.fast5_fail, fast5_fail_md5_txt)
         logging.info(cmd_fast5_fail)
         os.system(cmd_fast5_fail)
-        cmd_fast5_pass = 'cd {0} ; md5sum {0} >>{1}'.format(self.fast5_pass_dir, self.fast5_pass, fast5_pass_md5_txt)
+        cmd_fast5_pass = 'cd {0} ; md5sum {1} >>{2}'.format(self.fast5_pass_dir, self.fast5_pass, fast5_pass_md5_txt)
         logging.info(cmd_fast5_pass)
         os.system(cmd_fast5_pass)
         cmd_fastq_fail = 'cd {0} ; md5sum {1} >>{2}'.format(self.fastq_fail_dir, fastq_fail_gz, fastq_fail_md5_txt)
